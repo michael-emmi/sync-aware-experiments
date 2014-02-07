@@ -1,0 +1,25 @@
+type task a;
+var i: int;
+
+procedure p()
+  returns (r: int)
+{
+  return;
+}
+
+procedure main()
+{
+  var t: task int;
+  var x: int;
+
+  i := 0;
+  while (i < ${loop_count}) {
+    call {:async t} x := p();
+    i := i + 1;
+    assume {:yield} true;
+    assume {:wait x, t} true;
+  }
+
+  assert false;
+  return;
+}

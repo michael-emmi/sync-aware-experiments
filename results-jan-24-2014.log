@@ -1,0 +1,122 @@
+================================================================================
+COMPARISON w/ MSDN-CollectionLoad.bpl
+================================================================================
+WAIT-AWARE SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.906517 / {:W=>true, :D=>0, :V=>:boogie_si}
+true / 1.001643 / {:W=>true, :D=>1, :V=>:boogie_si}
+--------------------------------------------------------------------------------
+EQR SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.831786 / {:W=>false, :D=>0, :V=>:boogie_si}
+false / 0.988874 / {:W=>false, :D=>1, :V=>:boogie_si}
+false / 1.650746 / {:W=>false, :D=>2, :V=>:boogie_si}
+true / 5.735407 / {:W=>false, :D=>3, :V=>:boogie_si}
+================================================================================
+COMPARISON w/ MSDN-SendData.bpl
+================================================================================
+WAIT-AWARE SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.663517 / {:W=>true, :D=>0, :V=>:boogie_si}
+true / 0.785719 / {:W=>true, :D=>1, :V=>:boogie_si}
+--------------------------------------------------------------------------------
+EQR SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.620126 / {:W=>false, :D=>0, :V=>:boogie_si}
+false / 0.653928 / {:W=>false, :D=>1, :V=>:boogie_si}
+true / 0.894729 / {:W=>false, :D=>2, :V=>:boogie_si}
+================================================================================
+COMPARISON w/ StackOverflow-Bitmap.bpl
+================================================================================
+WAIT-AWARE SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.869887 / {:W=>true, :D=>0, :V=>:boogie_si}
+true / 1.071996 / {:W=>true, :D=>1, :V=>:boogie_si}
+--------------------------------------------------------------------------------
+EQR SEQUENTIALIZATION
+--------------------------------------------------------------------------------
+false / 0.6454 / {:W=>false, :D=>0, :V=>:boogie_si}
+false / 0.768563 / {:W=>false, :D=>1, :V=>:boogie_si}
+false / 1.059736 / {:W=>false, :D=>2, :V=>:boogie_si}
+false / 2.708615 / {:W=>false, :D=>3, :V=>:boogie_si}
+false / 7.690575 / {:W=>false, :D=>4, :V=>:boogie_si}
+true / 15.724078 / {:W=>false, :D=>5, :V=>:boogie_si}
+================================================================================
+COMPARISON W/ async-wait-in-loop.bpl.template
+================================================================================
+WAIT-AWARE SEQUENTIALIZATION / 1..50
+--------------------------------------------------------------------------------
+true / 0.563689 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>1}
+true / 0.57269 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>2}
+true / 0.609506 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>3}
+true / 0.613999 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>4}
+true / 0.728151 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>5}
+true / 0.645255 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>6}
+true / 0.675444 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>7}
+true / 0.679718 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>8}
+true / 0.718145 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>9}
+true / 0.740773 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>10}
+true / 0.799496 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>11}
+true / 0.942058 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>12}
+true / 0.87284 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>13}
+true / 0.890839 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>14}
+true / 0.938514 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>15}
+true / 0.9896 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>16}
+true / 1.018647 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>17}
+true / 1.068662 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>18}
+true / 1.151782 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>19}
+true / 1.181052 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>20}
+true / 1.236419 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>21}
+true / 1.293899 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>22}
+true / 1.365527 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>23}
+true / 1.431608 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>24}
+true / 1.526044 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>25}
+true / 1.606429 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>26}
+true / 1.670295 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>27}
+true / 1.730702 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>28}
+true / 1.867141 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>29}
+true / 1.886556 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>30}
+true / 1.988727 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>31}
+true / 2.109158 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>32}
+true / 2.231763 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>33}
+true / 2.334238 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>34}
+true / 2.438705 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>35}
+true / 2.672771 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>36}
+true / 2.699807 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>37}
+true / 2.774513 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>38}
+true / 2.849031 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>39}
+true / 3.018681 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>40}
+true / 3.134203 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>41}
+true / 3.300542 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>42}
+true / 3.397409 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>43}
+true / 3.495866 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>44}
+true / 3.824628 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>45}
+true / 3.842499 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>46}
+true / 4.026425 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>47}
+true / 4.317667 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>48}
+true / 4.288331 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>49}
+true / 4.425538 / {:W=>true, :D=>0, :V=>"boogie_si", :loop_count=>50}
+--------------------------------------------------------------------------------
+EQR SEQUENTIALIZATION / 1..50
+--------------------------------------------------------------------------------
+false / 0.517379 / {:W=>false, :D=>0, :V=>"boogie_si", :loop_count=>1}
+true / 0.610637 / {:W=>false, :D=>1, :V=>"boogie_si", :loop_count=>1}
+false / 0.589285 / {:W=>false, :D=>1, :V=>"boogie_si", :loop_count=>2}
+true / 0.623902 / {:W=>false, :D=>2, :V=>"boogie_si", :loop_count=>2}
+false / 0.615136 / {:W=>false, :D=>2, :V=>"boogie_si", :loop_count=>3}
+true / 0.629824 / {:W=>false, :D=>3, :V=>"boogie_si", :loop_count=>3}
+false / 0.655944 / {:W=>false, :D=>3, :V=>"boogie_si", :loop_count=>4}
+true / 0.697482 / {:W=>false, :D=>4, :V=>"boogie_si", :loop_count=>4}
+false / 0.811929 / {:W=>false, :D=>4, :V=>"boogie_si", :loop_count=>5}
+true / 0.90938 / {:W=>false, :D=>5, :V=>"boogie_si", :loop_count=>5}
+false / 1.561034 / {:W=>false, :D=>5, :V=>"boogie_si", :loop_count=>6}
+true / 1.4733 / {:W=>false, :D=>6, :V=>"boogie_si", :loop_count=>6}
+false / 4.141317 / {:W=>false, :D=>6, :V=>"boogie_si", :loop_count=>7}
+true / 3.878279 / {:W=>false, :D=>7, :V=>"boogie_si", :loop_count=>7}
+false / 8.089589 / {:W=>false, :D=>7, :V=>"boogie_si", :loop_count=>8}
+true / 5.901124 / {:W=>false, :D=>8, :V=>"boogie_si", :loop_count=>8}
+false / 26.937493 / {:W=>false, :D=>8, :V=>"boogie_si", :loop_count=>9}
+true / 21.365752 / {:W=>false, :D=>9, :V=>"boogie_si", :loop_count=>9}
+false / 48.752364 / {:W=>false, :D=>9, :V=>"boogie_si", :loop_count=>10}
+unexpected Boogie result
+TO / 101.350988 / {:W=>false, :D=>10, :V=>"boogie_si", :loop_count=>10}
