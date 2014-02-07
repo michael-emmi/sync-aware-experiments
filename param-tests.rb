@@ -24,7 +24,7 @@ def one_test(bpl_file, args, timeout = 100)
   output = `#{command} 2>&1`
   
   res = output.match /(\d+) verified, (\d+) errors?/ do |m| m[2].to_i > 0 end
-  warn "unexpected Boogie result" if res.nil?
+  warn "unexpected Boogie result: #{output}" if res.nil?
   
   res = nil if output.match(/ \d+ time outs?/)  
     
