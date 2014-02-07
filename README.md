@@ -25,3 +25,9 @@ help on installing Boogie and Corral.
 ## Usage
 
 Reproduce our experiments by running `./param-tests.rb`
+
+## Notes
+
+Each `.bpl` file was generated manually, yet systematically, from the original
+C\# source file, as discovered from their respective sources.
+ 
