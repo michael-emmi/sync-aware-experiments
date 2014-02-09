@@ -106,6 +106,32 @@ def compare_param_example(template_file, loop_limit)
 
 end
 
+def full_exploration(bpl_file, verifier, timeout = 100)
+
+  loop_limit = 10
+
+  puts "#{"-" * 80}"
+  puts "FULL (DEPTH-BOUNDED) EXPLORATION OF #{bpl_file} / 1..#{loop_limit}"
+  puts "#{"-" * 80}"
+  
+  (1..loop_limit).each do |loop_count|
+    temp_file = File.basename(bpl_file,".bpl") + ".prepared.bpl"
+    `c2s load #{bpl_file} prepare #{verifier} print #{temp_file} 2&>1`
+    if verifier =~ /boogie_fi/
+      output = `verify.rb --verifier boogie_fi --loop-unroll #{loop_count} #{temp_file} --timeout #{timeout}`
+    else
+      output = `verify.rb --verifier boogie_si --recursion-bound #{loop_count} #{temp_file} --timeout #{timeout}`
+    end
+    res = output.match /(\d+) verified, (\d+) errors?/ do |m| m[2].to_i > 0 end
+    warn "unexpected Boogie result: #{output}" if res.nil?
+    time = output.match /Boogie finished in ([0-9.]+)s./ do |m| m[1].to_f end
+    warn "unknown Boogie time" unless time
+    puts "#{res.nil? ? "TO" : res} / #{time} / verifier: #{verifier} / depth: #{loop_count}"
+    break if res.nil? || res
+  end
+
+end
+
 puts "#{"=" * 80}"
 puts "EXPERIMENTS FOR CAV 2014 SUBMISSION / SYNC-AWARE SEQUENTIALIZATION"
 puts "#{"=" * 80}"
@@ -115,10 +141,13 @@ if `which c2s`.empty? || `which rpp-seq.rb`.empty?
 end
 
 puts "Found c2s..."
-  
+
 compare_one_example "MSDN-CollectionLoad.bpl"
 compare_one_example "MSDN-SendData.bpl"
 compare_one_example "StackOverflow-Bitmap.bpl"
 
 compare_param_example 'async-wait-in-loop.bpl.template', 50
+  
+full_exploration "MSDN-CollectionLoad.FULLSEQ.bpl", "boogie_fi"
+full_exploration "MSDN-CollectionLoad.FULLSEQ.bpl", "boogie_si"
 
