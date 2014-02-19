@@ -23,6 +23,7 @@ const Button1_Click.DATA_MSG: object;
 const Button1_Click.ERROR_MSG: object;
 
 procedure Button1_Click(Sender: object, EventArgs: object)
+modifies rootPage, m_GetResponse;
 {
   var t: task int;
   var i: int;
@@ -52,6 +53,7 @@ try.done:
 }
 
 procedure SendData(url: object)
+modifies rootPage, m_GetResponse;
 {
 	var request: object;
   var response: object;
@@ -79,6 +81,7 @@ procedure SendData(url: object)
 }
 
 procedure Main()
+modifies rootPage, m_GetResponse;
 {
   var Sender: object;
   var EventArgs: object;

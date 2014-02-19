@@ -43,6 +43,7 @@ var m_bmp: object;
 const LayoutAwarePage.OnNavigatedTo.PAGE_STR: object;
 
 procedure LayoutAwarePage.OnNavigatedTo(eventArgs: object)
+modifies _pageKey, image1, m_bmp;
 {
   var t: task int;
   var depth: int;
@@ -71,6 +72,7 @@ procedure LayoutAwarePage.OnNavigatedTo(eventArgs: object)
 }
 
 procedure OnNavigatedTo(eventArgs: object)
+modifies _pageKey, image1, m_bmp;
 {
 	var t: task int;
   var current: object;
@@ -114,6 +116,7 @@ procedure OnNavigatedTo(eventArgs: object)
 const LoadState.URI_STR: object;
 
 procedure LoadState(nav: object, pageState: object)
+modifies _pageKey, image1, m_bmp;
 {
   var bmp: object;
   var t: task int;
@@ -150,6 +153,7 @@ procedure LoadState(nav: object, pageState: object)
 }
 
 procedure Main()
+modifies _pageKey, image1, m_bmp;
 {
   var args: object;
   _pageKey := Object.null;

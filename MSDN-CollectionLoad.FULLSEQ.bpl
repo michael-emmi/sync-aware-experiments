@@ -91,24 +91,87 @@ var $step: int;
 var $next_step: int;
 var $depth: int;
 
-procedure $talloc() returns (t: int) {
+procedure $talloc() returns (t: int) 
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
+{
   t := $num_threads;
   $completed[t] := false;
   $num_threads := $num_threads + 1;
   return;
 }
-procedure $salloc() returns (s: int) {
+procedure $salloc() returns (s: int) 
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
+{
   s := $num_steps;
   $num_steps := $num_steps + 1;
   return;
 }
-procedure $falloc() returns (f: int) {
+procedure $falloc() returns (f: int) 
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
+{
   f := $num_frames;
   $num_frames := $num_frames + 1;
   return;
 }
 
 procedure $RESUME(pn: int) returns (frame: int, loc: int, first: bool)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   $depth := $depth + 1;  
   if ($frames[$step][$depth] == $top_frame) {
@@ -128,6 +191,21 @@ procedure $RESUME(pn: int) returns (frame: int, loc: int, first: bool)
 }
 
 procedure $PAUSE(pn: int, loc: int, last: int) returns (frame: int)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var next_loc: int;
 
@@ -151,6 +229,21 @@ procedure $PAUSE(pn: int, loc: int, last: int) returns (frame: int)
 }
 
 procedure $THREAD(pn: int) returns (f: int, t: int)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var s: int;
   call t := $talloc();
@@ -165,6 +258,21 @@ procedure $THREAD(pn: int) returns (f: int, t: int)
 }
 
 procedure {:entrypoint} $DISPATCH()
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var t: int;  
   var f: int;
@@ -240,6 +348,21 @@ $done:
 /******************************************************************************/
 
 procedure Main()
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var args: object;
   var pageState: object;
@@ -283,6 +406,21 @@ $ret:
 }
 
 procedure App()
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var vm_ref: int;
   
@@ -323,6 +461,21 @@ procedure InitializeComponent();
 const OnLaunched.FRAME_STR: object;
 
 procedure OnLaunched(args0: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var args: object;
   var appFrame: object;
@@ -383,6 +536,21 @@ $ret:
 }
 
 procedure LoadState(navigationParameter0: object, pageState0: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var cs: object;
   var navigationParameter: object;
@@ -431,6 +599,21 @@ $ret:
 }
 
 procedure ViewModel.New() returns (vm_ref: int)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {  
   var t: int;
 
@@ -459,6 +642,21 @@ $ret:
 const ViewModel.InitializeData.FN_STR: object;
 
 procedure ViewModel.InitializeData(vm0: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var t: int;
   var vm: object;
@@ -501,6 +699,21 @@ $ret:
 }
 
 procedure ViewModel.DeserializeDataSetA(vm: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   var t: int;
   var current: object;
@@ -595,12 +808,42 @@ procedure ViewModel.InvFileName(vm: object) returns (filename: object);
 procedure ViewModel.SetInvFileName(vm: object, filename: object);
 
 procedure ViewModel.SetCategories(vm: object, cat: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   categories[vm] := cat;
   return;
 }
 
 procedure ViewModel.GetCategories(vm: object) returns (cat: object)
+modifies VM, categories, itemsViewSource, $num_threads, $num_steps,
+$num_frames, $steps, $frames, $completed, $proc_name, $control_loc,
+$Main.args, $Main.pageState, $App.vm_ref, $OnLaunched.args,
+$OnLaunched.appFrame, $OnLaunched.catType, $OnLaunched.current,
+$LoadState.navigationParameter, $LoadState.pageState, $LoadState.cs,
+$ViewModel.New.vm_ref, $ViewModel.InitializeData.vm,
+$ViewModel.InitializeData.t, $ViewModel.DeserializeDataSetA.t,
+$ViewModel.DeserializeDataSetA.current,
+$ViewModel.DeserializeDataSetA.storageFolder,
+$ViewModel.DeserializeDataSetA.ty, $ViewModel.DeserializeDataSetA.dcs,
+$ViewModel.DeserializeDataSetA.filename,
+$ViewModel.DeserializeDataSetA.stream1_ref,
+$ViewModel.DeserializeDataSetA.stream1, $ViewModel.DeserializeDataSetA.cs,
+$ViewModel.DeserializeDataSetA.vm, $StorageFolder.OpenStreamForReadA.folder,
+$StorageFolder.OpenStreamForReadA.filename, $step, $next_step, $depth;
 {
   cat := categories[vm];
   return;

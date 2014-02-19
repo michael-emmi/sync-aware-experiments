@@ -29,6 +29,7 @@ var categories: [object] object;
 var itemsViewSource: object;
 
 procedure Main()
+modifies VM, categories, itemsViewSource;
 {
   var args: object;
   var pageState: object;
@@ -40,6 +41,7 @@ procedure Main()
 }
 
 procedure App()
+modifies VM, categories, itemsViewSource;
 {
   var vm_ref: int;
 
@@ -60,6 +62,7 @@ procedure InitializeComponent();
 const OnLaunched.FRAME_STR: object;
 
 procedure OnLaunched(args: object)
+modifies VM, categories, itemsViewSource;
 {
   var appFrame: object;
   var catType: object;
@@ -87,6 +90,7 @@ procedure OnLaunched(args: object)
 }
 
 procedure LoadState(navigationParameter: object, pageState: object)
+modifies VM, categories, itemsViewSource;
 {
   var cs: object;
 
@@ -106,6 +110,7 @@ procedure LoadState(navigationParameter: object, pageState: object)
 }
 
 procedure ViewModel.New() returns (vm_ref: int)
+modifies VM, categories, itemsViewSource;
 {
   call {:async} ViewModel.InitializeData(obj(vm_ref));
   return;
@@ -114,6 +119,7 @@ procedure ViewModel.New() returns (vm_ref: int)
 const ViewModel.InitializeData.FN_STR: object;
 
 procedure ViewModel.InitializeData(vm: object)
+modifies VM, categories, itemsViewSource;
 {
   var t: task int;
 
@@ -129,6 +135,7 @@ procedure ViewModel.InitializeData(vm: object)
 }
 
 procedure ViewModel.DeserializeDataSetAsync(vm: object)
+modifies VM, categories, itemsViewSource;
 {
   var t: task int;
   var current: object;
@@ -174,12 +181,14 @@ procedure ViewModel.InvFileName(vm: object) returns (filename: object);
 procedure ViewModel.SetInvFileName(vm: object, filename: object);
 
 procedure ViewModel.SetCategories(vm: object, cat: object)
+modifies VM, categories, itemsViewSource;
 {
   categories[vm] := cat;
   return;
 }
 
 procedure ViewModel.GetCategories(vm: object) returns (cat: object)
+modifies VM, categories, itemsViewSource;
 {
   cat := categories[vm];
   return;

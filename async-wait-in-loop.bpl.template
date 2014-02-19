@@ -3,11 +3,13 @@ var i: int;
 
 procedure p()
   returns (r: int)
+  modifies i;
 {
   return;
 }
 
 procedure main()
+modifies i;
 {
   var t: task int;
   var x: int;

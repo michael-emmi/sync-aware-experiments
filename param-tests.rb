@@ -18,8 +18,8 @@ end
 def one_test(bpl_file, args, timeout = 100)
   
   command = "rpp-seq.rb #{args[:W] ? "" : "-w"} -d #{args[:D]} \
-    #{args[:loop_count] ? "--loop-unroll #{args[:loop_count]+1}" : ""} \
-    --verifier #{args[:V]} #{bpl_file} --timeout #{timeout}"
+    #{args[:loop_count] ? "-u #{args[:loop_count]+1}" : ""} \
+    --verifier #{args[:V]} #{bpl_file} --timeout #{timeout} -k -v"
     
   output = `#{command} 2>&1`
   
@@ -118,9 +118,9 @@ def full_exploration(bpl_file, verifier, timeout = 100)
     temp_file = File.basename(bpl_file,".bpl") + ".prepared.bpl"
     `c2s load #{bpl_file} prepare #{verifier} print #{temp_file} 2&>1`
     if verifier =~ /boogie_fi/
-      output = `verify.rb --verifier boogie_fi --loop-unroll #{loop_count} #{temp_file} --timeout #{timeout}`
+      output = `verify.rb --verifier boogie_fi -u #{loop_count} #{temp_file} --timeout #{timeout}`
     else
-      output = `verify.rb --verifier boogie_si --recursion-bound #{loop_count} #{temp_file} --timeout #{timeout}`
+      output = `verify.rb --verifier boogie_si -u #{loop_count} #{temp_file} --timeout #{timeout}`
     end
     res = output.match /(\d+) verified, (\d+) errors?/ do |m| m[2].to_i > 0 end
     warn "unexpected Boogie result: #{output}" if res.nil?
