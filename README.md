@@ -1,6 +1,6 @@
 # Synchronization-Aware Analysis of Asynchronous Programs
 
-Experiments for a CAV 2014 paper submission.
+Experiments for a SPIN 2014 paper submission.
 
 ## Requirements
 
