@@ -11,9 +11,9 @@ accessible in your path.
 `curses` gems -- a gem in installed via the command `gem install <gem-name>`.
 Our submission results were reported with Ruby version 2.1.0p0.
 
-- [c2s](https://github.com/michael-emmi/c2s) -- our submissions results were
+- [c2s-ocaml](https://github.com/michael-emmi/c2s-ocaml) -- our submissions results were
 reported with commit
-\#[5a5a804](https://github.com/michael-emmi/c2s/commit/5a5a8047b090120df88017c94e3717f7727fb8ba).
+\#[5a5a804](https://github.com/michael-emmi/c2s-ocaml/commit/5a5a8047b090120df88017c94e3717f7727fb8ba).
 
 - [Boogie](http://boogie.codeplex.com)
 
