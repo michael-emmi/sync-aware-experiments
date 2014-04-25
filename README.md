@@ -1,6 +1,8 @@
 # Synchronization-Aware Analysis of Asynchronous Programs
 
-Experiments for a SPIN 2014 paper submission.
+Experiments and proofs to selected results for a SPIN 2014 paper submission.
+
+The full version of our submission is [here](draft-full.pdf)
 
 ## Requirements
 
